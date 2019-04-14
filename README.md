@@ -6,4 +6,4 @@ This tutorial provides a practical reference for working with Date objects, and 
 - Writing functions
 - Combining strings
 
-See it live [here!](https://andreybutenko.shinyapps.io/practice-dates/) Implemented with `[learnr](https://rstudio.github.io/learnr/)`.
+See it live [here!](https://andreybutenko.shinyapps.io/practice-dates/) Implemented with [`learnr`](https://rstudio.github.io/learnr/).

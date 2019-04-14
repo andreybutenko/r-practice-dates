@@ -1,0 +1,95 @@
+---
+title: "Practice Dates"
+author: "Andrey Butenko"
+date: April 13, 2019
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+#rmarkdown::run("practice-dates.Rmd")
+library(learnr)
+knitr::opts_chunk$set(echo= FALSE)
+```
+
+# Practice Dates
+
+In R, there are special `Date` objects that help you work with dates and times! `Date` objects have special powers that makes complicated calculations easier. For instance, you can calculate how many days there are between events.
+
+**To practice, let's calculate how many days old you are!**
+
+Before we can accomplish that, we need to understand the toolkit of functions we have available to work with dates.
+
+### Toolkit: `as.Date()`
+
+The `as.Date(...)` function takes a character string in a year-month-day format and turns it into a `Date` object.
+
+Press the blue "run" button to see the output of this code:
+
+```{r as_date, exercise = TRUE}
+andrey_birthday <- as.Date("1999-04-20")
+print(andrey_birthday)
+```
+
+Although the result appears pretty boring, this is not just any character string... it is really a `Date` object!
+
+Try changing the date to your own birthdate, and rename the variable name appropriately.
+
+### Toolkit: `Sys.Date()`
+
+The `Sys.Date()` function returns a `Date` object for today's date.
+
+```{r sys_date, exercise = TRUE, exercise.eval = TRUE}
+today_date <- Sys.Date()
+print(today_date)
+```
+
+Perfect, `today_date` is a `Date` object containing today's date!
+
+### Toolkit: Subtracting Dates
+
+We can subtract two `Date` objects to figure out how many days are in between them.
+
+```{r subtract_dates, exercise = TRUE, exercise.eval = TRUE}
+end_of_spring_finals <- as.Date("2019-06-14")
+start_of_spring_qtr <- as.Date("2019-04-01")
+
+# How many days in are in spring quarter?
+print(end_of_spring_finals - start_of_spring_qtr)
+```
+
+Wow, R figures out how many days are in between our two `Date` objects, and even provides nice contextual text when printing out the answer! _(You don't need to know this, but the contextual text shows up because subtracting two `Date` objects creates a `difftime` object. When you print a `difftime` object, it is always formatted to say "Time difference of {X}". Convenient!)._
+
+When subtracting two dates, it can be confusing to figure out which date to subtract from which. One way to remember: you want a _positive_ number for how many days are between the dates, so you want to subtract the _smaller_ number (earlier date) from the _bigger_ number (later date).
+
+### Exercise: How Many Days Old Am I?
+
+Let's do an exercise in calculating how many days old you are to practice this skill of working with `Date` objects! Here's our prompt:
+
+> Our objective is to write a function `get_age_days` that takes in one argument `my_birthday` that is a `Date` object. The function should return a character string in the format `"I am {X} days old". Finally, test your function by providing your own birthdate.
+
+Complete the exercise here:
+
+```{r get_age_days_ex, exercise = TRUE}
+# Create a function `get_age_days` that takes in one argument `my_birthday`
+# and returns a character string in the format `"I am {X} days old"
+# Hint: you will need to use the `paste(...)` function to combine strings.
+
+
+# Create a variable representing your birthdate
+
+
+# Use the `print` function to output the result
+
+```
+
+# Congratulations!
+
+Wonderful! You now have practice in:
+
+- Manipulating dates
+- Writing functions
+- Combining strings
+
+Amazing!! You're going to do great on A2 and the whole rest of the quarter :-)
+

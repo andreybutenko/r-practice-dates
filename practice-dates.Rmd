@@ -1,7 +1,5 @@
 ---
 title: "Practice Dates"
-author: "Andrey Butenko"
-date: April 13, 2019
 output: learnr::tutorial
 runtime: shiny_prerendered
 ---
@@ -62,9 +60,41 @@ Wow, R figures out how many days are in between our two `Date` objects, and even
 
 When subtracting two dates, it can be confusing to figure out which date to subtract from which. One way to remember: you want a _positive_ number for how many days are between the dates, so you want to subtract the _smaller_ number (earlier date) from the _bigger_ number (later date).
 
+### Toolkit: Formatting Dates
+
+If you have a `Date` object and you want to display it in a human-readable way, you can use the `format(...)` function and specify the format you want it in.
+
+For example:
+
+```{r format_date_example, exercise = TRUE, exercise.eval = TRUE}
+andrey_birthday <- as.Date("1999-04-20")
+formatted_andrey_birthday <- format(andrey_birthday, format = "%B %d, %Y")
+print(paste("Andrey's birthdate is", formatted_andrey_birthday))
+```
+
+You can format the date in many different ways! Here is a table of all the symbols you can use to format your dates:
+
+| Symbol 	| Meaning                	| Example 	|
+|--------	|------------------------	|---------	|
+| %d     	| day as a number (0-31) 	| 01      	|
+| %a     	| abbreviated weekday    	| Mon     	|
+| %A     	| unabbreviated weekday  	| Monday  	|
+| %m     	| month (01-12)          	| 01      	|
+| %b     	| abbreviated month      	| Jan     	|
+| %B     	| unabbreviated month    	| January 	|
+| %y     	| 2-digit year           	| 19      	|
+| %Y     	| 4-digit year           	| 2019    	|
+
+To practice, format today's date in a unique way:
+
+```{r format_date_exercise, exercise = TRUE}
+today_date <- Sys.Date()
+# print()
+```
+
 ### Exercise: How Many Days Old Am I?
 
-Let's do an exercise in calculating how many days old you are to practice this skill of working with `Date` objects! Here's our prompt:
+Let's do an exercise in calculating how many days old you are to practice working with `Date` objects! Here's our prompt:
 
 > Our objective is to write a function `get_age_days` that takes in one argument `my_birthday` that is a `Date` object. The function should return a character string in the format `"I am {X} days old". Finally, test your function by providing your own birthdate.
 
